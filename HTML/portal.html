@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Noticias</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="prueba.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+</head>
+<body>
+    <div id="contenidoPdf" style="white-space: pre-wrap; margin-top: 20px;"></div>
+
+    <div class="contenedor-principal">
+        <!-- Contenedor para inputs -->
+        <div class="contenedor-inputs">
+            <div class="input-group">
+                <button data-section="textInputSection" onclick="showSection('textInputSection')" class="active">📝 Texto</button>
+                <button data-section="urlInputSection" onclick="showSection('urlInputSection')">🌐 URL</button>
+                <button data-section="fileInputSection" onclick="showSection('fileInputSection')">📁 Archivo</button>
+            </div>
+
+            <!-- Sección de texto -->
+            <div id="textInputSection" class="input-section">
+                <textarea id="textInput" rows="8" placeholder="Pega aquí el texto de la noticia..."></textarea>
+                <button onclick="analizarContenido('text')">Clasificar</button>
+            </div>
+
+            <!-- Sección de URL -->
+            <div id="urlInputSection" class="input-section" style="display: none;">
+                <input type="text" id="urlInput" placeholder="Introduce la URL de la noticia...">
+                <button onclick="analizarContenido('url')">Clasificar</button>
+            </div>
+
+            <!-- Sección de archivo -->
+            <div id="fileInputSection" class="input-section" style="display: none;">
+                <input type="file" id="fileInput">
+                <button onclick="analizarContenido('file')">Clasificar</button>
+            </div>
+        </div>
+
+        <!-- Contenedor para los resultados -->
+        <div id="result" class="contenedor-resultados">
+            Aquí aparecerá la categoría de la noticia
+        </div>
+    </div>
+</body>
+</html>
